@@ -1,0 +1,134 @@
+---
+# Default home page with boxes providing collection stats
+layout: page
+sentence: true
+---
+
+<!-- {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%} -->
+<div class="row">
+  <form class="form-inline" role="search" id="bubble-search" onsubmit="site_search(); return false;">
+    <div class="input-group">
+        <input readonly="readonly" id="bubble-site-search" class="form-control " type="text" placeholder="Disabled Textbox - Please Use Buttons" aria-label="Search box">
+        <button class="btn btn-light" type="submit">
+            <span id="search-icon"><svg viewBox="0 0 1024 974" height="16px" width="20px"><path d="M960 832L710.875 582.875C746.438 524.812 768 457.156 768 384 768 171.96900000000005 596 0 384 0 171.969 0 0 171.96900000000005 0 384c0 212 171.969 384 384 384 73.156 0 140.812-21.562 198.875-57L832 960c17.5 17.5 46.5 17.375 64 0l64-64C977.5 878.5 977.5 849.5 960 832zM384 640c-141.375 0-256-114.625-256-256s114.625-256 256-256 256 114.625 256 256S525.375 640 384 640z"></path></svg></span>
+            <span class="visually-hidden">Search</span>
+        </button>
+    </div>
+</form>
+  <h2 class="bubble-title col-md-12">Please Select Tags by Clicking Buttons</h2>
+  <div class="col-md-4">
+    <h3>Form</h3>
+    <button onclick="set_search('sentence')">Sentence</button>
+    <button onclick="set_search('parallel period')">Parallel Period</button>
+    <button onclick="set_search('contrasting period')" class="button priority">Contrasting Period</button>
+    <button onclick="set_search('aaba')" class="button priority">AABA</button>
+    <button onclick="set_search('rounded binary')" class="button priority">Rounded Binary</button>
+    <button onclick="set_search('binary')" class="button priority">Binary</button>
+    <button onclick="set_search('ternary')" class="button priority">Ternary</button>
+    <button onclick="set_search('through-composed')" class="button priority">Through-composed</button>
+    <button onclick="set_search('strophic')" class="button priority">Strophic</button>
+    <button onclick="set_search('popular verse-chorus')" class="button priority">Popular Verse-Chorus</button>
+    <button onclick="set_search('verse chorus')" class="button priority">Verse Chorus</button>
+    <button onclick="set_search('verse-refrain')" class="button priority">Verse-Refrain</button>
+    <button onclick="set_search('rondo')" class="button priority">Rondo</button>
+  </div>
+  <div class="col-md-4">  
+    <h3>Tonality</h3>
+    <button onclick="set_search('major')" class="button secondary">Major</button>
+    <button onclick="set_search('minor')" class="button secondary">Minor</button>
+    <button onclick="set_search('pentatonic')" class="button secondary">Pentatonic</button>
+    <button onclick="set_search('modal')" class="button secondary">Modal</button>
+    <button onclick="set_search('atonality')" class="button secondary">Atonality</button>
+    <button onclick="set_search('serialism')" class="button secondary">Serialism</button>
+    <button onclick="set_search('octatonic')" class="button secondary">Octatonic</button>
+    <button onclick="set_search('whole-tone')" class="button secondary">Whole-Tone</button>
+    <button onclick="set_search('quartal/quintal harmony')" class="button secondary">Quartal/Quintal Harmony</button>
+    <button onclick="set_search('transposing instruments')" class="button secondary">Transposing Instruments</button>
+  </div>
+  <div class="col-md-4">
+    <h3>Meter/Rhythm</h3>
+    <button onclick="set_search('simple')" class="button priority">Simple</button>
+    <button onclick="set_search('simple meter with non-quarter-note beat')" class="button secondary">Simple Meter with Non-quarter-note Beat</button>
+    <button onclick="set_search('compound')" class="button priority">Compound</button>
+    <button onclick="set_search('compound meter with non-dotted-quarter-note beat')" class="button secondary">Compound Meter with Non-dotted-quarter-note Beat</button>
+    <button onclick="set_search('asymmetrical')" class="button priority">Asymmetrical</button>
+    <button onclick="set_search('mixed meter')" class="button priority">Mixed Meter</button>
+    <button onclick="set_search('anacrusis')" class="button priority">Anacrusis</button>
+    <button onclick="set_search('syncopation')" class="button priority">Syncopation</button>
+    <button onclick="set_search('hemioloa')" class="button priority">Hemiola</button>
+    <button onclick="set_search('triplets')" class="button priority">Triplets</button>
+    <button onclick="set_search('across the beat triplets')" class="button priority">Across the Beat Triplets</button>
+    <button onclick="set_search('ostinato')" class="button priority">Ostinato</button>
+  </div>
+  <div class="col-md-4">
+    <h3>Texture</h3>
+    <button onclick="set_search('monophony')" class="button">Monophony</button>
+    <button onclick="set_search('homophony')" class="button">Homophony</button>
+    <button onclick="set_search('chorale style homophony')" class="button priority">Chorale Style Homophony</button>
+    <button onclick="set_search('polyphony')" class="button">Polyphony</button>
+    <button onclick="set_search('heterophony')" class="button">Heterophony</button>
+    <button onclick="set_search('aleatory')" class="button">Aleatory</button>
+    <button onclick="set_search('canon')" class="button">Canon</button>
+    <button onclick="set_search('call and response')" class="button">Call and Response</button>
+  </div>
+  <div class="col-md-4">
+    <h3>Chords</h3>
+    <button onclick="set_search('mediant')" class="button">Mediant</button>
+    <button onclick="set_search('cadential 6/4')" class="button">Cadential 6/4</button>
+    <button onclick="set_search('other 6/4')" class="button">Other 6/4</button>
+    <button onclick="set_search('dominant seventh')" class="button">Dominant Seventh</button>
+    <button onclick="set_search('other seventh')" class="button">Other Seventh</button>
+    <button onclick="set_search('secondary dominant')" class="button">Secondary Dominant</button>
+    <button onclick="set_search('secondary leading tone')" class="button">Secondary Leading Tone</button>
+    <button onclick="set_search('reinterpreted diminished seventh')" class="button">Reinterpreted diminished seventh</button>
+    <button onclick="set_search('n6')" class="button">N6</button>
+    <button onclick="set_search('augmented 6')" class="button">Augmented 6</button>
+    <button onclick="set_search('ct°7')" class="button">CT°7</button>
+    <button onclick="set_search('extended chords')" class="button">Extended Chords</button>
+    <button onclick="set_search('added tone chords')" class="button">Added Tone Chords</button>
+    <button onclick="set_search('tone cluster')" class="button">Tone Cluster</button>
+    <button onclick="set_search('borrowed chords/modal mixture')" class="button">Borrowed Chords/Modal Mixture</button>
+    <button onclick="set_search('subtonic chord (bVII)')" class="button">Subtonic Chord (bVII)</button>
+  </div>
+  <div class="col-md-4">
+    <h3>Progressions</h3>
+    <button onclick="set_search('direct modulation')" class="button">Direct Modulation</button>
+    <button onclick="set_search('pivot chord modulation')" class="button">Pivot Chord Modulation</button>
+    <button onclick="set_search('harmonic sequence')" class="button">Harmonic Sequence</button>
+    <button onclick="set_search('phrase model')" class="button">Phrase Model</button>
+    <button onclick="set_search('descending tetrachord in bass')" class="button">Descending Tetrachord in Bass</button>
+    <button onclick="set_search('ii-V-I')" class="button">ii-V-I</button>
+    <button onclick="set_search('Four Chord Loop')" class="button">Four Chord Loop</button>
+  </div>
+  <div class="col-md-4">
+    <h3>Cadences</h3>
+    <button onclick="set_search('half cadence')" class="button">Half Cadence</button>
+    <button onclick="set_search('imperfect authentic cadence')" class="button">Imperfect Authentic Cadence</button>
+    <button onclick="set_search('perfect authentic cadence')" class="button">Perfect Authentic Cadence</button>
+    <button onclick="set_search('deceptive cadence')" class="button">Deceptive Cadence</button>
+    <button onclick="set_search('plagal cadence')" class="button">Plagal Cadence</button>
+    <button onclick="set_search('phrygian half cadence')" class="button">Phrygian Half Cadence</button>
+  </div>
+  <div class="col-md-4">
+    <h3>Non-Chord Tones</h3>
+    <button onclick="set_search('double neighbor figure')" class="button">Double Neighbor Figure</button>
+    <button onclick="set_search('passing tones')" class="button">Passing Tones</button>
+    <button onclick="set_search('chromatic passing tones')" class="button">Chromatic Passing Tones</button>
+    <button onclick="set_search('complete neighbor tones')" class="button">Complete Neighbor Tones</button>
+    <button onclick="set_search('chromatic neighbor tones')" class="button">Chromatic Neighbor Tones</button>
+    <button onclick="set_search('incomplete neighbor tones')" class="button">Incomplete Neighbor Tones</button>
+    <button onclick="set_search('appoggiatura')" class="button">Appoggiatura</button>
+    <button onclick="set_search('raised leading tone')" class="button">Raised Leading Tone</button>
+    <button onclick="set_search('suspension')" class="button">Suspension</button>
+    <button onclick="set_search('anticipation')" class="button">Anticipation</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  

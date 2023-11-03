@@ -1,0 +1,17 @@
+field,display_name,browse_link,external_link,dc_map,schema_map
+title,Title,,,DCTERMS.title,headline
+creator,Creator,,,DCTERMS.creator,creator
+arranger,Arranger,,,,arranger
+date,Date Created,,,DCTERMS.date,dateCreated
+description,Description,,,DCTERMS.description,description
+form,Form,true,,,form
+tonality,Tonality,true,,,tonality
+meterrhythm,Meter/Rhythm,true,,,meterrhythm
+texture,Texture,true,,,texture
+chords,Chords,true,,,chords
+progressions,Progressions,true,,,progressions
+cadences,Cadences,true,,,cadences
+nonchordtones,Non-Chord Tones,true,,,nonchordtones
+location,Location,,,,contentLocation
+latitude,Latitude,,,,
+longitude,Longitude,,,,
